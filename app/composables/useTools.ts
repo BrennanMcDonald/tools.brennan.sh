@@ -1,7 +1,7 @@
 import type { ToolEntry } from '~/types/tools'
 
 /** Categories render in this order; anything else is appended alphabetically. */
-const CATEGORY_ORDER = ['Time', 'Developer', 'Text', 'Random', 'Security']
+const CATEGORY_ORDER = ['Security', 'Developer', 'Time', 'Random', 'Text']
 
 export interface ToolCategory {
   name: string

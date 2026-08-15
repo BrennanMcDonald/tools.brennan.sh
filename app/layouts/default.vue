@@ -64,7 +64,6 @@ defineShortcuts({ '/': focusSearch })
 
       <template #footer="{ state }">
         <div class="flex w-full items-center gap-1" :class="state === 'collapsed' && 'flex-col'">
-          <UColorModeButton size="sm" />
           <UButton
             :to="appConfig.site.repo"
             target="_blank"
@@ -101,7 +100,7 @@ defineShortcuts({ '/': focusSearch })
           </template>
         </nav>
 
-        <div class="ms-auto flex items-center gap-1">
+        <div class="ms-auto flex items-center gap-2">
           <UBadge
             v-if="currentTool"
             :label="currentTool.category"
@@ -110,6 +109,7 @@ defineShortcuts({ '/': focusSearch })
             size="sm"
             class="max-sm:hidden"
           />
+          <ThemeToggle />
         </div>
       </header>
 

@@ -8,7 +8,14 @@ export default defineNuxtConfig({
   // @nuxt/ui bundles @nuxt/fonts; we self-host through @nuxtjs/google-fonts instead.
   ui: { fonts: false },
 
-  colorMode: { preference: 'system', fallback: 'dark' },
+  // `classSuffix: ''` puts a bare `dark` class on <html> so Tailwind's dark: variant works.
+  colorMode: {
+    preference: 'system',
+    fallback: 'dark',
+    classSuffix: '',
+    storageKey: 'tools.brennan.sh:theme'
+  },
+
 
   // Bundle every icon found in source so the site never calls the Iconify API.
   icon: {
@@ -31,7 +38,8 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'description', content: 'A small collection of fast, private, offline-friendly everyday tools.' },
-        { name: 'theme-color', content: '#09090b' }
+        { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#09090b', media: '(prefers-color-scheme: dark)' }
       ]
     }
   },
