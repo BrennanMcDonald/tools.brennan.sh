@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// Imported explicitly rather than relying on @nuxt/ui's generated auto-imports.
+import { defineShortcuts } from '@nuxt/ui/composables/defineShortcuts'
+
 const route = useRoute()
 const appConfig = useAppConfig()
 

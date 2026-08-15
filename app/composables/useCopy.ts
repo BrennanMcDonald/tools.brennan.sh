@@ -1,3 +1,5 @@
+import { useToast } from '@nuxt/ui/composables/useToast'
+
 /** Clipboard write with a toast, falling back to a hidden textarea on older browsers. */
 export function useCopy() {
   const toast = useToast()

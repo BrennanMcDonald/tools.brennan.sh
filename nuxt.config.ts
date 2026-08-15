@@ -10,6 +10,13 @@ export default defineNuxtConfig({
 
   colorMode: { preference: 'system', fallback: 'dark' },
 
+  // Bundle every icon found in source so the site never calls the Iconify API.
+  icon: {
+    serverBundle: 'local',
+    clientBundle: { scan: true, sizeLimitKb: 512 }
+  },
+
+
   googleFonts: {
     families: { Inter: [400, 500, 600, 700], 'JetBrains Mono': [400, 500] },
     display: 'swap',

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { defineShortcuts } from '@nuxt/ui/composables/defineShortcuts'
+
 definePageMeta({
   tool: {
     title: 'Timer & Stopwatch',
