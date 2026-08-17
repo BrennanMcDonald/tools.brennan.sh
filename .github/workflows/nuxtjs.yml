@@ -53,12 +53,12 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # Automatically inject router.base in your Nuxt configuration file and set
-          # target to static (https://nuxtjs.org/docs/configuration-glossary/configuration-target/).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: nuxt
+        # Deliberately no `static_site_generator: nuxt`: that option is for Nuxt 2
+        # and writes a `nuxt.config.js` with `router.base`/`target`. Since we only
+        # ship `nuxt.config.ts`, and c12 resolves `.js` before `.ts`, that generated
+        # file would shadow our real config and drop every module (@nuxt/ui and
+        # friends). The site is served from a custom domain, so the base URL is `/`
+        # anyway; override with NUXT_APP_BASE_URL if that ever changes.
       - name: Restore cache
         uses: actions/cache@v4
         with:
