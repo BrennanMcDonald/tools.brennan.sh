@@ -8,9 +8,11 @@ export default defineNuxtConfig({
   // @nuxt/ui bundles @nuxt/fonts; we self-host through @nuxtjs/google-fonts instead.
   ui: { fonts: false },
 
+  // Dark by default for everyone; the header toggle overrides it and the choice
+  // is remembered under `storageKey`.
   // `classSuffix: ''` puts a bare `dark` class on <html> so Tailwind's dark: variant works.
   colorMode: {
-    preference: 'system',
+    preference: 'dark',
     fallback: 'dark',
     classSuffix: '',
     storageKey: 'tools.brennan.sh:theme'
@@ -38,8 +40,8 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'description', content: 'A small collection of fast, private, offline-friendly everyday tools.' },
-        { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
-        { name: 'theme-color', content: '#09090b', media: '(prefers-color-scheme: dark)' }
+        // Matches the default dark theme rather than the OS preference.
+        { name: 'theme-color', content: '#09090b' }
       ]
     }
   },
